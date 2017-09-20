@@ -1,0 +1,1 @@
+Shopping Cart app with ExpressJS, MongoDB, Handelbar.js for view engine
