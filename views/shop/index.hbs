@@ -1,86 +1,26 @@
-<div class="row mb-4">
-    <div class="col-md-4">
-        <div class="card">
-            <img class="card-img-top img-responsive" src="https://vignette.wikia.nocookie.net/callofduty/images/8/8a/CoD4_boxart.png/revision/latest?cb=20110107234635" alt="Card image cap">
-            <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class="card-text description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, officiis!</p>
-                <div class="clearfix">
-                    <div class="price pull-left">$12</div>
-                    <a href="#" class="btn btn-success pull-right">Button</a>
+{{# each products }}
+    <div class="row mb-4">
+        {{# each this}}
+            <div class="col-sm-6 col-md-4">
+                <div class="card">
+                    <img class="card-img-top img-responsive" src="{{ this.imagePath }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ this.title }}</h4>
+                        <p class="card-text description">{{ this.description }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="clearfix">
+                            <div class="price pull-left">${{ this.price }}</div>
+                            <a href="#" class="btn btn-success pull-right">Add to Shopping Cart</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card">
-            <img class="card-img-top img-responsive" src="https://vignette.wikia.nocookie.net/callofduty/images/8/8a/CoD4_boxart.png/revision/latest?cb=20110107234635" alt="Card image cap">
-            <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class="card-text description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, officiis!</p>
-                <div class="clearfix">
-                    <div class="price pull-left">$12</div>
-                    <a href="#" class="btn btn-success pull-right">Button</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card">
-            <img class="card-img-top img-responsive" src="https://vignette.wikia.nocookie.net/callofduty/images/8/8a/CoD4_boxart.png/revision/latest?cb=20110107234635" alt="Card image cap">
-            <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class="card-text description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, officiis!</p>
-                <div class="clearfix">
-                    <div class="price pull-left">$12</div>
-                    <a href="#" class="btn btn-success pull-right">Button</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
-<div class="row mb-4">
-    <div class="col-md-4">
-        <div class="card">
-            <img class="card-img-top img-responsive" src="https://vignette.wikia.nocookie.net/callofduty/images/8/8a/CoD4_boxart.png/revision/latest?cb=20110107234635" alt="Card image cap">
-            <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class="card-text description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, officiis!</p>
-                <div class="clearfix">
-                    <div class="price pull-left">$12</div>
-                    <a href="#" class="btn btn-success pull-right">Button</a>
-                </div>
             </div>
-        </div>
+        {{/each}}
     </div>
-    <div class="col-md-4">
-        <div class="card">
-            <img class="card-img-top img-responsive" src="https://vignette.wikia.nocookie.net/callofduty/images/8/8a/CoD4_boxart.png/revision/latest?cb=20110107234635" alt="Card image cap">
-            <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class="card-text description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, officiis!</p>
-                <div class="clearfix">
-                    <div class="price pull-left">$12</div>
-                    <a href="#" class="btn btn-success pull-right">Button</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card">
-            <img class="card-img-top img-responsive" src="https://vignette.wikia.nocookie.net/callofduty/images/8/8a/CoD4_boxart.png/revision/latest?cb=20110107234635" alt="Card image cap">
-            <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class="card-text description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, officiis!</p>
-                <div class="clearfix">
-                    <div class="price pull-left">$12</div>
-                    <a href="#" class="btn btn-success pull-right">Button</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+{{/each}}
+
 
 
 

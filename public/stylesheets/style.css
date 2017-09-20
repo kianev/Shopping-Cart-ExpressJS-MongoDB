@@ -1,3 +1,7 @@
+.card {
+    min-height: 500px;
+}
+
 .card-img-top{
     max-width: 200px;
     height:auto;
@@ -12,3 +16,5 @@
     font-weight: bold;
     font-size: 20px;
 }
+
+
