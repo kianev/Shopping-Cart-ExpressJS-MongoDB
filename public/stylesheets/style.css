@@ -1,6 +1,7 @@
-.card .card-img-top {
-    height: auto;
-    max-width: 250px;
+.card-img-top{
+    max-width: 200px;
+    height:auto;
+    margin: 0 auto;
 }
 
 .card .description {
