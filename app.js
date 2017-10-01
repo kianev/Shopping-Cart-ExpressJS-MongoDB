@@ -38,7 +38,7 @@ app.use(session({
   secret: 'mySecret',
   resave: false,
   saveUninitialized: false,
-  store: new MongoStore({mongooseCollection: mongoose.connection}),
+  store: new MongoStore({mongooseConnection: mongoose.connection}),
   cookie: {maxAge: 180 * 60 * 1000}
 }))
 app.use(flash())
