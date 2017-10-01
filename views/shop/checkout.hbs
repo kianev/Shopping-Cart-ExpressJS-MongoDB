@@ -2,6 +2,9 @@
     <div class="col-sm-6 col-md-6 m-auto">
         <h2>Checkout</h2>
         <h4>Your Total: ${{ total }}</h4>
+        <div id="charge-error" class="alert alert-danger d-none">
+
+        </div>
         <form action="/checkout" method="post" id="checkout-form">
             <div class="row">
                 <div class="col-sm-12">
@@ -55,3 +58,6 @@
         </form>
     </div>
 </div>
+
+<script src="https://js.stripe.com/v2/"></script>
+<script src="javascripts/checkout.js"></script>
