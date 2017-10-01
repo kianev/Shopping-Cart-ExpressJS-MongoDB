@@ -10,7 +10,10 @@
         </ul>
         <ul class="navbar-nav mr-5">
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart</a>
+                <a class="nav-link" href="/shoppingcart">
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart
+                    <span class="badge badge-pill badge-danger">{{session.cart.totalQty}}</span>
+                </a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i>
