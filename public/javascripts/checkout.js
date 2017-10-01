@@ -11,6 +11,7 @@ $form.submit(function (event) {
     cvc: $('#cvc').val(),
     exp_month: $('#exp-month').val(),
     exp_year: $('#exp-year').val(),
+    name: $('#card-name').val()
   }, stripeResponseHandler);
   return false
 })
