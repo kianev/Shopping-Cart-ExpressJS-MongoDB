@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 let Product = require('../models/product')
 let Cart = require('../models/cart')
+let Order = require('../models/order')
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -68,9 +69,24 @@ router.post('/checkout', function (req, res, next) {
       req.flash('error', err.message)
       return res.redirect('/checkout')
     }
-    req.flash('success', 'Successfully bought products.')
-    req.session.cart = null
-    res.redirect('/')
+
+    let order = new Order({
+      user: req.user,
+      cart: cart,
+      address: req.body.address,
+      name: req.body.name,
+      paymentId: charge.id
+    })
+
+    order.save(function (err, result) {
+      if(err){
+        console.log(err)
+        return res.redirect('/checkout')
+      }
+      req.flash('success', 'Successfully bought products.')
+      req.session.cart = null
+      res.redirect('/')
+    })
   })
 
 })
