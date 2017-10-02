@@ -4,11 +4,24 @@ let Product = require('../models/product')
 let csrf = require('csurf')
 const passport = require('passport')
 
+let Cart = require('../models/cart')
+let Order = require('../models/order')
+
 let csrfProtection = csrf()
 router.use(csrfProtection)
 
 router.get('/profile', isLoggedin, function (req, res, next) {
-  res.render('user/profile')
+  Order.find({user: req.user}, function (err, orders) {
+    if (err) {
+      return res.write('Error')
+    }
+    let cart
+    orders.forEach(function (order) {
+      cart = new Cart(order.cart)
+      order.items = cart.generateArray()
+    })
+    res.render('user/profile', {orders: orders})
+  })
 })
 
 router.get('/logout', isLoggedin, function (req, res, next) {
@@ -30,8 +43,8 @@ router.post('/signup',
     successRedirect: '/user/profile',
     failureRedirect: '/user/signup',
     failureFlash: true
-  }) , function (req, res, next) {
-    if(req.session.oldUrl){
+  }), function (req, res, next) {
+    if (req.session.oldUrl) {
       let oldUrl = req.session.oldUrl
       req.session.oldUrl = null
       res.redirect(oldUrl)
@@ -49,7 +62,7 @@ router.post('/signin', passport.authenticate('local.signin', {
   failureRedirect: '/user/signin',
   failureFlash: true
 }), function (req, res, next) {
-  if(req.session.oldUrl){
+  if (req.session.oldUrl) {
     let oldUrl = req.session.oldUrl
     req.session.oldUrl = null
     res.redirect(oldUrl)
@@ -58,19 +71,19 @@ router.post('/signin', passport.authenticate('local.signin', {
   }
 })
 
-module.exports = router;
+module.exports = router
 
 //protecting the routs
 function isLoggedin (req, res, next) {
-  if(req.isAuthenticated()){
-    return next();
+  if (req.isAuthenticated()) {
+    return next()
   }
   res.redirect('/')
 }
 
 function notLoggedin (req, res, next) {
-  if(!req.isAuthenticated()){
-    return next();
+  if (!req.isAuthenticated()) {
+    return next()
   }
   res.redirect('/')
 }
